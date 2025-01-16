@@ -33,6 +33,12 @@ cd EzPC/Athos
 python CompileCPP.py --config Networks/sample_network.config
 ```
 
+Note that in CompileCPP.py, you can modify the bit width for the private inference (41-bit by default):
+```python
+if target == "SCI":
+  bitlength = 41
+```
+
 After compilation, there will be an excutable file named WinogradConv_SCI_OT.out in the path of `EzPC/Athos/Networks/WinogradConv/`.
 
 ## Inference with 2PC
@@ -40,12 +46,12 @@ After compilation, there will be an excutable file named WinogradConv_SCI_OT.out
 cd EzPC/Athos/Networks/WinogradConv
 ```
 
-Initialize the server side:
+Terminal 1: initialize the server side:
 ```bash
 /WinogradConv_SCI_OT.out r=1 < model_weights_scale_12.inp
 ```
 
-Initialize the client side:
+Terminal 2: initialize the client side:
 ```bash
 /WinogradConv_SCI_OT.out r=2 < model_input_scale_12.inp
 ```
