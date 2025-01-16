@@ -1,4 +1,4 @@
-# winogradcnn-mpc
+# winogradconv-mpc
 
 ## Installation
 Follow [EzPC](https://github.com/mpc-msri/EzPC/tree/master) to install the docker of CryptFlow2
@@ -18,4 +18,21 @@ Follow [EzPC](https://github.com/mpc-msri/EzPC/tree/master) to install the docke
   "backend": "OT",
   "run_in_tmux": false 
 }
+```
+
+After compilation, there will be a file named WinogradConv_SCI_OT.out in the path of `EzPC/Athos/Networks/WinogradConv/`
+
+## Inference with 2PC
+```bash
+cd EzPC/Athos/Networks/WinogradConv
+```
+
+Initialize the server side:
+```bash
+/WinogradConv_SCI_OT.out r=1 < model_weights_scale_12.inp
+```
+
+Initialize the client side:
+```bash
+/WinogradConv_SCI_OT.out r=2 < model_input_scale_12.inp
 ```
