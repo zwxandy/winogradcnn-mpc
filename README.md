@@ -3,6 +3,11 @@
 ## Installation
 Follow the instructions of [EzPC](https://github.com/mpc-msri/EzPC/tree/master) to install the docker of CryptFlow2. Note that Tensorflow1.x is necessary for the program running.
 
+For example, if your conda environment name is `tf1`, you should first activate your conda environment in the docker container:
+```bash
+conda activate tf1
+```
+
 ## File Prepration
 1. In the path of `EzPC/Athos/Networks`, copy the folder of SqueezeNetCIFAR10 and name the new folder as WinogradConv.
 2. Follow the instruction of setup to prepare the basic files.
